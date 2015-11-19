@@ -1,5 +1,5 @@
 var data = {
-    poruka: "Baaaavoooo"
+    poruka: ""
 }
 new Vue({
     el: "#sin",
