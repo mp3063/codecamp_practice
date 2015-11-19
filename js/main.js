@@ -1,11 +1,12 @@
 var data = {
-    poruka: ""
+    counter: 0
 }
 new Vue({
     el: "#sin",
+    data: data,
     methods: {
-        handleIt: function () {
-            alert('Handled');
+        increment: function () {
+            this.counter += 1;
         }
     }
 });

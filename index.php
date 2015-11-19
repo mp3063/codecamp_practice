@@ -8,9 +8,7 @@
 </head>
 <body>
 <div id="sin">
-    <form action="done.php" @submit="handleIt">
-        <button class="submit" type="submit">Submit</button>
-    </form>
+    <button type="submit" @click="increment">Increment counter: {{ counter }}</button>
 </div>
 
 <script src="js/main.js"></script>
