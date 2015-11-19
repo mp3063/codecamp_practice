@@ -3,5 +3,9 @@ var data = {
 }
 new Vue({
     el: "#sin",
-    data: data
+    methods: {
+        handleIt: function () {
+            alert('Handled');
+        }
+    }
 });

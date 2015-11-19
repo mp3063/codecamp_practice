@@ -8,10 +8,9 @@
 </head>
 <body>
 <div id="sin">
-    <small v-show="!poruka"><em>You must enter a message</em></small>
-    <br>
-    <textarea v-model="poruka" cols="30" rows="10"></textarea><br>
-    <button v-show="poruka" type="submit">Send message</button>
+    <form action="done.php" @submit="handleIt">
+        <button class="submit" type="submit">Submit</button>
+    </form>
 </div>
 
 <script src="js/main.js"></script>
