@@ -14,14 +14,16 @@
 <!--<script src="js/main.js"></script>-->
 <script>
 
-    function findLongestWord(str) {
-        var niz = str.split(' ');
-        var block = niz.reduce(function (a, b) {
-            return a.length > b.length ? a : b;
-        });
-        return block.length;
+    function titleCase(str) {
+        var niz = str.toLowerCase().split(' ');
+        var sol = [];
+        for (var i = 0; i < niz.length; i++) {
+            sol.push(niz[i].charAt(0).toUpperCase() + niz[i].slice(1));
+        }
+        console.log(sol.join(' '));
     }
-    findLongestWord("The quick brown fox jumped over the lazy dog");
+
+    titleCase("sHoRt AnD sToUt");
 
 </script>
 </body>
