@@ -2,32 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="js/vue.min.js"></script>
+    <!--    <script src="js/vue.min.js"></script>-->
     <link href="css/main.css" rel="stylesheet">
     <title>Proba VUE.JS</title>
 </head>
 <body>
-<div id="sin">
-    <button type="submit" @click="increment">Increment counter: {{ counter }}</button>
-</div>
+<!--<div id="sin">-->
+<!--    <button type="submit" @click="increment">Increment counter: {{ counter }}</button>-->
+<!--</div>-->
 
-<script src="js/main.js"></script>
+<!--<script src="js/main.js"></script>-->
 <script>
 
-    function checkPalindrom(str) {
-        var punct = str.replace(/[.,-\/#!$%\^&\*;:{}=\-_`~()]/g, "").split(
-            ' ').join('').toLowerCase();
-        var string = punct.split('').reverse().join('').replace(
-            /[.,-\/#!$%\^&\*;:{}=\-_`~()]/g, "");
-        if (punct == string) {
-            return console.log(true);
-        }
-        else {
-            return console.log(false);
-        }
+    function findLongestWord(str) {
+        var niz = str.split(' ');
+        var block = niz.reduce(function (a, b) {
+            return a.length > b.length ? a : b;
+        });
+        return block.length;
     }
-
-    checkPalindrom("My age is 0, 0 si ega ym.");
+    findLongestWord("The quick brown fox jumped over the lazy dog");
 
 </script>
 </body>
