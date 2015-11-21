@@ -14,20 +14,20 @@
 <!--<script src="js/main.js"></script>-->
 <script>
 
-    function repeat(str, num) {
-        var niz = [];
-        if (num < 0) {
-            return "";
-        }
-        else {
-            for (var i = 0; i < num; i++) {
-                niz.push(str);
+    function truncate(str, num) {
+        if (str.length > num) {
+            var cut = str.slice(0, num);
+            if (cut.length <= 3) {
+                return cut + "...";
             }
-            return niz.join('');
+            else {
+                return cut.slice(0, (cut.length - 3)) + "...";
+            }
         }
+        return str;
     }
 
-    repeat("abc", 3);
+    truncate("Absolutely Longer", 2);
 
 </script>
 </body>
