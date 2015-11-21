@@ -14,19 +14,17 @@
 <!--<script src="js/main.js"></script>-->
 <script>
 
-    function largestOfFour(arr) {
-        var niz = [];
-        for (var i = 0; i < arr.length; i++) {
-            var lon = arr[i].reduce(function (a, b) {
-                return b < a ? a : b;
-            });
-            niz.push(lon);
+    function end(str, target) {
+        var sub = str.substr((str.length - target.length), target.length);
+        if (sub == target) {
+            return true;
         }
-        return niz;
+        else {
+            return false;
+        }
     }
 
-    largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39],
-        [1000, 1001, 857, 1]]);
+    end("He has to give me a new name", "name");
 
 </script>
 </body>
