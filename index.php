@@ -14,16 +14,19 @@
 <!--<script src="js/main.js"></script>-->
 <script>
 
-    function titleCase(str) {
-        var niz = str.toLowerCase().split(' ');
-        var sol = [];
-        for (var i = 0; i < niz.length; i++) {
-            sol.push(niz[i].charAt(0).toUpperCase() + niz[i].slice(1));
+    function largestOfFour(arr) {
+        var niz = [];
+        for (var i = 0; i < arr.length; i++) {
+            var lon = arr[i].reduce(function (a, b) {
+                return b < a ? a : b;
+            });
+            niz.push(lon);
         }
-        console.log(sol.join(' '));
+        return niz;
     }
 
-    titleCase("sHoRt AnD sToUt");
+    largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39],
+        [1000, 1001, 857, 1]]);
 
 </script>
 </body>
