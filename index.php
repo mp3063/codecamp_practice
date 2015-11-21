@@ -14,17 +14,20 @@
 <!--<script src="js/main.js"></script>-->
 <script>
 
-    function end(str, target) {
-        var sub = str.substr((str.length - target.length), target.length);
-        if (sub == target) {
-            return true;
+    function repeat(str, num) {
+        var niz = [];
+        if (num < 0) {
+            return "";
         }
         else {
-            return false;
+            for (var i = 0; i < num; i++) {
+                niz.push(str);
+            }
+            return niz.join('');
         }
     }
 
-    end("He has to give me a new name", "name");
+    repeat("abc", 3);
 
 </script>
 </body>
