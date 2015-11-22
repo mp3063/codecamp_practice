@@ -14,20 +14,21 @@
 <!--<script src="js/main.js"></script>-->
 <script>
 
-    function truncate(str, num) {
-        if (str.length > num) {
-            var cut = str.slice(0, num);
-            if (cut.length <= 3) {
-                return cut + "...";
-            }
-            else {
-                return cut.slice(0, (cut.length - 3)) + "...";
-            }
+    function slasher(arr, howMany) {
+        if (arr.length < howMany) {
+            return [];
         }
-        return str;
+        else if (howMany === 0) {
+            return arr;
+        }
+        else {
+            return arr.splice((arr.length - 1), howMany);
+        }
+
+
     }
 
-    truncate("Absolutely Longer", 2);
+    slasher([1, 2, 3], 2);
 
 </script>
 </body>
