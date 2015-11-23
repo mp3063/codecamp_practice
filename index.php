@@ -14,21 +14,31 @@
 <!--<script src="js/main.js"></script>-->
 <script>
 
-    function slasher(arr, howMany) {
-        if (arr.length < howMany) {
-            return [];
+    function mutation(arr) {
+        var niz1 = arr[0].toLowerCase().split("");
+        var niz2 = arr[1].toLowerCase().split("");
+        var booltrue = [];
+        var boolfalse = [];
+        for (var i = 0; i < niz2.length; i++) {
+            var slovo = niz2[i];
+            for (var l = 0; l < niz1.length; l++) {
+                if (slovo == niz1[l]) {
+                    booltrue.push(true);
+                }
+                else {
+                    boolfalse.push(false);
+                }
+            }
         }
-        else if (howMany === 0) {
-            return arr;
+        if (booltrue.length >= niz2.length) {
+            return true;
         }
         else {
-            return arr.splice((arr.length - 1), howMany);
+            return false;
         }
-
-
     }
 
-    slasher([1, 2, 3], 2);
+    mutation(["hello", "hey"]);
 
 </script>
 </body>
