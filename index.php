@@ -14,17 +14,19 @@
 <!--<script src="js/main.js"></script>-->
 <script>
 
-    function bouncer(arr) {
-        var niz = [];
-        for (var i = 0; i < arr.length; i++) {
-            if (!!arr[i]) {
-                niz.push(arr[i]);
+    function where(arr, num) {
+        var niz = arr.sort(function (a, b) {
+            return a - b;
+        });
+        for (var i = 0; i < niz.length; i++) {
+            if (num <= niz[i]) {
+                return i;
             }
         }
-        return niz;
+        return niz.length;
     }
 
-    bouncer([7, "ate", "", false, 9]);
+    where([5, 3, 20, 3], 5);
 
 </script>
 </body>
