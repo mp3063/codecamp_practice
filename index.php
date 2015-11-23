@@ -14,31 +14,17 @@
 <!--<script src="js/main.js"></script>-->
 <script>
 
-    function mutation(arr) {
-        var niz1 = arr[0].toLowerCase().split("");
-        var niz2 = arr[1].toLowerCase().split("");
-        var booltrue = [];
-        var boolfalse = [];
-        for (var i = 0; i < niz2.length; i++) {
-            var slovo = niz2[i];
-            for (var l = 0; l < niz1.length; l++) {
-                if (slovo == niz1[l]) {
-                    booltrue.push(true);
-                }
-                else {
-                    boolfalse.push(false);
-                }
+    function bouncer(arr) {
+        var niz = [];
+        for (var i = 0; i < arr.length; i++) {
+            if (!!arr[i]) {
+                niz.push(arr[i]);
             }
         }
-        if (booltrue.length >= niz2.length) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return niz;
     }
 
-    mutation(["hello", "hey"]);
+    bouncer([7, "ate", "", false, 9]);
 
 </script>
 </body>
