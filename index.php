@@ -14,19 +14,27 @@
 <!--<script src="js/main.js"></script>-->
 <script>
 
-    function where(arr, num) {
-        var niz = arr.sort(function (a, b) {
-            return a - b;
-        });
-        for (var i = 0; i < niz.length; i++) {
-            if (num <= niz[i]) {
-                return i;
+    function sumAll(arr) {
+        if (arr.length > 1) {
+            var sort = arr.sort(function (a, b) {
+                return a - b;
+            });
+            var min = sort[0];
+            var max = sort[1];
+            var empty = [];
+            var res = 0;
+            for (var i = min; i <= max; i++) {
+                empty.push(i);
             }
+            for (var k = 0; k < empty.length; k++) {
+                res += empty[k];
+            }
+            return res;
         }
-        return niz.length;
+        return 1;
     }
 
-    where([5, 3, 20, 3], 5);
+    sumAll([1, 4]);
 
 </script>
 </body>
