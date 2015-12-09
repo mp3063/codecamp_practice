@@ -14,27 +14,33 @@
 <!--<script src="js/main.js"></script>-->
 <script>
 
-    function sumAll(arr) {
-        if (arr.length > 1) {
-            var sort = arr.sort(function (a, b) {
-                return a - b;
-            });
-            var min = sort[0];
-            var max = sort[1];
-            var empty = [];
-            var res = 0;
-            for (var i = min; i <= max; i++) {
-                empty.push(i);
+    function diff(arr1, arr2) {
+        var res = [];
+
+        arr1.forEach(function (item) {
+            if (!_existItem(item, arr2)) {
+                res.push(item);
             }
-            for (var k = 0; k < empty.length; k++) {
-                res += empty[k];
+        });
+
+        arr2.forEach(function (item) {
+            if (!_existItem(item, arr1)) {
+                res.push(item);
             }
-            return res;
-        }
-        return 1;
+        });
+
+        return res;
     }
 
-    sumAll([1, 4]);
+    function _existItem(value, arr) {
+        if (arr.indexOf(value) >= 0) {
+            return true;
+        }
+
+        return false;
+    }
+
+    diff([1, 2, 3, 5], [1, 2, 3, 4, 5]);
 
 </script>
 </body>
