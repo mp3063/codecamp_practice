@@ -14,33 +14,25 @@
 <!--<script src="js/main.js"></script>-->
 <script>
 
-    function diff(arr1, arr2) {
-        var res = [];
+    var reference = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+    var translate = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX',
+                     'V', 'IV', 'I'];
 
-        arr1.forEach(function (item) {
-            if (!_existItem(item, arr2)) {
-                res.push(item);
+    function convert(num) {
+        var res = "";
+
+        for (var i = 0; i < reference.length; i++) {
+            if (num >= reference[i]) {
+                res += translate[i];
+                num -= reference[i];
+                i--;
+
             }
-        });
-
-        arr2.forEach(function (item) {
-            if (!_existItem(item, arr1)) {
-                res.push(item);
-            }
-        });
-
+        }
         return res;
     }
 
-    function _existItem(value, arr) {
-        if (arr.indexOf(value) >= 0) {
-            return true;
-        }
-
-        return false;
-    }
-
-    diff([1, 2, 3, 5], [1, 2, 3, 4, 5]);
+    console.log(convert(123));
 
 </script>
 </body>
