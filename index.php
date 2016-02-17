@@ -14,25 +14,30 @@
 <!--<script src="js/main.js"></script>-->
 <script>
 
-    var reference = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
-    var translate = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX',
-                     'V', 'IV', 'I'];
-
-    function convert(num) {
-        var res = "";
-
-        for (var i = 0; i < reference.length; i++) {
-            if (num >= reference[i]) {
-                res += translate[i];
-                num -= reference[i];
-                i--;
-
+    function rot13(str) { // LBH QVQ VG!
+        var niz = [];
+        str.split("").forEach(function (item) {
+            var alt = item.charCodeAt(0) + 13;
+            if (item === "!" || item === "?" || item === ".") {
+                niz.push(item.charCodeAt(0));
             }
-        }
-        return res;
+            else if (alt > 90) {
+                var decod = (alt - 91) + 65
+                niz.push(decod);
+            }
+            else {
+                niz.push(item.charCodeAt(0) + 13);
+            }
+        });
+        var dekodirano = [];
+        niz.forEach(function (item) {
+            dekodirano.push(String.fromCharCode(item));
+        });
+        return dekodirano.join("").replace(/-/g, " ");
     }
 
-    console.log(convert(123));
+    // Change the inputs below to test
+    console.log(rot13("SERR YBIR?"));
 
 </script>
 </body>
