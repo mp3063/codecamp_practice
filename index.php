@@ -13,31 +13,21 @@
 
 <!--<script src="js/main.js"></script>-->
 <script>
-
-    function rot13(str) { // LBH QVQ VG!
-        var niz = [];
-        str.split("").forEach(function (item) {
-            var alt = item.charCodeAt(0) + 13;
-            if (item === "!" || item === "?" || item === ".") {
-                niz.push(item.charCodeAt(0));
-            }
-            else if (alt > 90) {
-                var decod = (alt - 91) + 65
-                niz.push(decod);
-            }
-            else {
-                niz.push(item.charCodeAt(0) + 13);
-            }
+    
+    function where(collection, source) {
+        var sourceKeys = Object.keys(source);
+        
+        return collection.filter(function (colObject) {
+            return sourceKeys.every(function (sourceKey) {
+                return colObject.hasOwnProperty(
+                        sourceKey) && colObject[sourceKey] === source[sourceKey];
+            });
         });
-        var dekodirano = [];
-        niz.forEach(function (item) {
-            dekodirano.push(String.fromCharCode(item));
-        });
-        return dekodirano.join("").replace(/-/g, " ");
     }
+    
+    console.log(where([{"a": 1, "b": 2}, {"a": 1}, {"a": 1, "b": 2, "c": 2}],
+        {"a": 1, "c": 2}));
 
-    // Change the inputs below to test
-    console.log(rot13("SERR YBIR?"));
 
 </script>
 </body>
