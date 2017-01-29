@@ -1,14 +1,26 @@
-function boo(bool) {
-    if (bool === true || bool === false) {
-        switch (bool) {
-            case true:
-                return true;
-            case false:
-                return true;
-        }
+//Instructions
+// Retrieve the second tree from the variable myPlants using object dot and array bracket notation.
+// Setup
+var myPlants = [
+    {
+        type: "flowers",
+        list: [
+            "rose",
+            "tulip",
+            "dandelion"
+        ]
+    },
+    {
+        type: "trees",
+        list: [
+            "fir",
+            "pine",
+            "birch"
+        ]
     }
-    return false;
-}
+];
 
-console.log(boo("false"));
+// Only change code below this line
+console.log(myPlants[1].list[1]);
+var secondTree = myPlants[1].list[1]; // Change this line
 
