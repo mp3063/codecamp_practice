@@ -1,26 +1,19 @@
 //Instructions
-// Retrieve the second tree from the variable myPlants using object dot and array bracket notation.
+//Use a for loop to work to push the values 1 through 5 onto myArray.
+// Example
+var ourArray = [];
+
+for (var i = 0; i < 5; i++) {
+    ourArray.push(i);
+}
+
 // Setup
-var myPlants = [
-    {
-        type: "flowers",
-        list: [
-            "rose",
-            "tulip",
-            "dandelion"
-        ]
-    },
-    {
-        type: "trees",
-        list: [
-            "fir",
-            "pine",
-            "birch"
-        ]
-    }
-];
+var myArray = [];
 
-// Only change code below this line
-console.log(myPlants[1].list[1]);
-var secondTree = myPlants[1].list[1]; // Change this line
+// Only change code below this line.
 
+for (var i = 1; i <= 5; i++) {
+    myArray.push(i);
+}
+
+console.log(myArray);
