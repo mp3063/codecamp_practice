@@ -1,27 +1,27 @@
-// Given a positive integer num,
-// return the sum of all odd Fibonacci numbers that are less than or equal to num.
-// The first two numbers in the Fibonacci sequence are 1 and 1.
-// Every additional number in the sequence is the sum of the two previous numbers.
-// The first six numbers of the Fibonacci sequence are 1, 1, 2, 3, 5 and 8.
-//For example, sumFibs(10) should return 10 because all odd Fibonacci numbers less than 10 are 1, 1, 3, and 5.
-function sumFibs(num)
+// Sum all the prime numbers up to and including the provided number.
+// A prime number is defined as a number greater than one and having only two divisors, one and itself.
+// For example, 2 is a prime number because it's only divisible by one and two.
+// The provided number may not be a prime.
+function sumPrimes(num)
 {
-    var fibon = [1, 1];
-    for (var i = 0; i <= num; i++) {
-        if (fibon[fibon.length - 1] <= num) {
-            fibon.push(fibon[i] + fibon[fibon.length - 1]);
+    function isPrime(number)
+    {
+        for (var i = 2; i <= number; i++) {
+            if (number % i === 0 && number != i) {
+                return false;
+            }
         }
+        return true;
     }
-    var arr = [1];
-    for (var k = 1; k <= fibon.length; k++) {
-        if (fibon[k] % 2 == 1 && fibon[k] <= num) {
-            arr.push(fibon[k]);
-        }
+    
+    if (num === 1) {
+        return 0;
     }
-    var sum = 0;
-    for (var j = 0; j < arr.length; j++) {
-        sum += arr[j];
+    if (isPrime(num) === false) {
+        return sumPrimes(num - 1);
     }
-    return sum;
+    if (isPrime(num) === true) {
+        return num + sumPrimes(num - 1);
+    }
 }
-console.log(sumFibs(4));
+console.log(sumPrimes(977));
