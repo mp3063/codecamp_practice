@@ -1,27 +1,33 @@
-// Sum all the prime numbers up to and including the provided number.
-// A prime number is defined as a number greater than one and having only two divisors, one and itself.
-// For example, 2 is a prime number because it's only divisible by one and two.
-// The provided number may not be a prime.
-function sumPrimes(num)
+// Find the smallest common multiple of the provided parameters that can be evenly divided by both,
+// as well as by all sequential numbers in the range between these parameters.
+// The range will be an array of two numbers that will not necessarily be in numerical order.
+// e.g. for 1 and 3 - find the smallest common multiple of both 1 and 3
+// that is evenly divisible by all numbers between 1 and 3.
+function smallestCommons(arr)
 {
-    function isPrime(number)
+    function sortNumber(a, b)
     {
-        for (var i = 2; i <= number; i++) {
-            if (number % i === 0 && number != i) {
-                return false;
-            }
-        }
-        return true;
+        return a - b;
     }
     
-    if (num === 1) {
-        return 0;
+    var sorted = arr.sort(sortNumber);
+    var from = sorted[0];
+    var to = sorted[1];
+    var range = [];
+    for (var i = from; i <= to; i++) {
+        range.push(i);
     }
-    if (isPrime(num) === false) {
-        return sumPrimes(num - 1);
+    for (var k = 1; k < range.length; k++) {
+        from = (from * range[k]) / evenlyDivisible(from, range[k]);
     }
-    if (isPrime(num) === true) {
-        return num + sumPrimes(num - 1);
+    return from;
+    function evenlyDivisible(fromNumber, modulo)
+    {
+        if (modulo === 0) {
+            return fromNumber;
+        } else {
+            return evenlyDivisible(modulo, fromNumber % modulo);
+        }
     }
 }
-console.log(sumPrimes(977));
+console.log(smallestCommons([5, 10]));
