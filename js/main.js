@@ -1,14 +1,21 @@
-// Create a function that looks through an array (first argument)
-// and returns the first element in the array that passes a truth test (second argument).
-function findElement(arr, func)
+// Drop the elements of an array (first argument),
+// starting from the front, until the predicate (second argument) returns true.
+// The second argument, func, is a function you'll use to test
+// the first elementsof the array to decide if you should drop it or not.
+// Return the rest of the array, otherwise return an empty array.
+function dropElements(arr, func)
 {
-    for (var i = 0; i < arr.length; i++) {
-        if (func(arr[i])) {
-            return arr[i];
+    var length = arr.length;
+    for (var i = 0; i < length; i++) {
+        if (func(arr[0])) {
+            break;
+        } else {
+            arr.shift();
         }
     }
+    return arr;
 }
-console.log(findElement([1, 2, 3, 4], function (num)
+console.log(dropElements([1, 2, 3, 4], function (n)
 {
-    return num % 2 === 0;
+    return n > 0;
 }));
