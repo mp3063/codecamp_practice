@@ -1,14 +1,12 @@
-// Flatten a nested array. You must account for varying levels of nesting.
-// Remember to use Read-Search-Ask if you get stuck.
-// Try to pair program. Write your own code.
-function steamrollArray(arr)
+// Return an English translated sentence of the passed binary string.
+// The binary string will be space separated.
+function binaryAgent(str)
 {
-    return arr.reduce(function (a, b)
+    var splitted = str.split(" ");
+    return splitted.map(function (item)
     {
-        if (Array.isArray(b)) {
-            return a.concat(steamrollArray(b));
-        }
-        return a.concat(b);
-    }, []);
+        return String.fromCharCode(parseInt(item, 2));
+    }, []).join("");
 }
-console.log(steamrollArray([1, [2], [3, [[4]]]]));
+console.log(binaryAgent(
+    "01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111"));
