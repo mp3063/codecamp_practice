@@ -1,4 +1,60 @@
-button.submit{
+body {
+    background-image: url("../img/sativa.png");
+
+}
+
+.container {
+    height: 80%;
+    margin: auto;
+    position: relative;
+    width: 80%;
+}
+
+.header {
+    font-family: 'Aguafina Script', cursive;
+    padding: 1%;
+    position: relative;
+    text-align: center;
+}
+
+h2 {
+    color: #FF6666;
+    font-size: 4em;
+}
+
+.quote {
+    background-color: #0D3B66;
+    border-radius: 5px;
+    color: ghostwhite;
+    font-family: 'Coming Soon', cursive;
+    font-size: large;
+    font-weight: 900;
     margin-left: auto;
     margin-right: auto;
+    padding: 1%;
+    position: relative;
+    text-align: center;
+    width: 60%;
+}
+
+.center {
+    padding: 5%;
+    text-align: center;
+}
+
+button {
+    background-color: #1C3144;
+    border-radius: 4px;
+    border-style: none;
+    color: #FFD046;
+    font-family: 'Coming Soon', cursive;
+    font-size: medium;
+    font-weight: 900;
+    height: 60px;
+    width: 200px;
+}
+
+a {
+    text-decoration: none;
+    color: #FFD046;
 }
