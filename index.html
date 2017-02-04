@@ -3,30 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <!--    <script src="js/vue.min.js"></script>-->
+    <link href="https://bootswatch.com/united/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Aguafina+Script" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Coming+Soon" rel="stylesheet">
 
     <title>Proba VUE.JS</title>
 </head>
 <body>
 <div class="container">
-    <div class="header">
-        <h2 class="city"></h2>
+    <div class="form-group">
+        <h3 class="text-center inline">Search Wikipedia</h3>
+        <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank"><span class="label btn-block label-success pull-right">Random Wiki</span></a>
+        <input type="text" name="search" class="form-control">
+        <a href="#" class="btn btn-primary btn-block search-wiki">Search</a>
+
     </div>
-    <div class="picture"></div>
-    <div class="quote">
-        <p class="celsius"></p>
-        <p class="fahren"></p>
-    </div>
-    <div class="center">
-        <button type="button" class="button"><a href="#" class="fahrenheit">Convert to F</a></button>
-    </div>
+    <div class="output"></div>
+
 </div>
 <script
     src="https://code.jquery.com/jquery-3.1.1.min.js"
     integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
     crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
