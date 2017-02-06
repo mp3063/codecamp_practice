@@ -1,26 +1,64 @@
-'use strict';
+"use strict";
 
 $(document).ready(function () {
-    var api   = 'https://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=10&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=';
-    var input = $("input[name='search']");
-    var page  = 'https://en.wikipedia.org/?curid=';
-    $(".search-wiki").on("click", function () {
+    var usernames  = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "ROOTCatZ", "brunofin", "comster404"];
+    var baseUrl    = "https://wind-bow.gomix.me/twitch-api/channels/";
+    var baseUrlStr = "https://wind-bow.gomix.me/twitch-api/streams/";
+
+    usernames.forEach(function (username) {
         $.ajax({
-            method: "post",
+            method: "GET",
+            url: baseUrlStr + username,
+            crossdomain: true,
             dataType: 'jsonp',
-            url: api + input.val(),
-            beforeSend: function beforeSend(xhr) {
-                xhr.setRequestHeader("Access-Control-Allow-Origin: http://localhost:8080");
-            },
-            success: function success(results) {
-                var pages = results.query.pages;
-                console.log(pages);
-                $(".output").empty();
-                for (var result in pages) {
-                    $(".output")
-                            .append('\n<a class="link-unstyled" href="https://en.wikipedia.org/wiki/' + pages[result].title + '" target="_blank"><div class="panel panel-default">\n  <div class="panel-heading">\n    <h3 class="panel-title text-center">' + pages[result].title + '</h3>\n  </div>\n  <div class="panel-body text-center">\n    ' + pages[result].extract + '\n  </div>\n</div></a>\n');
+            success: function success(data) {
+                var htmlTemplate = "\n<a href=\"" + ("https://www.twitch.tv/" + username.toLowerCase()) + "\" target=\"_blank\" class=\"link-unstyled\">\n    <div class=\"well text-center on-hover " + (data.stream == null ? "offline" + username : "online" + username) + "\"><h4>" + username.toUpperCase() + "</h4>\n        <p>" + ("https://www.twitch.tv/" + username.toLowerCase()) + "</p>\n        <small>" + (data.stream == null ? "offline" : "online") + "</small>\n        <div class=\"additional\"></div>\n    </div>\n</a>";
+                $(".output").append(htmlTemplate);
+                if (data.stream !== null) {
+                    $(".online" + username).append("<small>" + data.stream.game + "</small>");
                 }
             }
         });
     });
+
+    function checkUserChanell(users) {
+        users.forEach(function (username) {
+            $.ajax({
+                method: "GET",
+                url: baseUrl + username,
+                success: function success(data) {
+                    console.log(data.status);
+                    if (data.status == 404) {
+                        $(".offline" + username)
+                                .append("<span class=\"label label-default\">" + data.message + "</span>");
+                    }
+                }
+            });
+        });
+    }
+
+    function removeAndAddActive() {
+        $(".active").removeClass("active");
+        $(this).parent().addClass("active");
+    }
+
+    $(".offLink").on("click", function (e) {
+        e.preventDefault();
+        removeAndAddActive.call(this);
+        $("[class*=online]").hide();
+        $("[class*=offline]").show();
+    });
+    $(".all").on("click", function (e) {
+        e.preventDefault();
+        removeAndAddActive.call(this);
+        $("[class*=online]").show();
+        $("[class*=offline]").show();
+    });
+    $(".onLink").on("click", function (e) {
+        e.preventDefault();
+        removeAndAddActive.call(this);
+        $("[class*=offline]").hide();
+        $("[class*=online]").show();
+    });
+    checkUserChanell(usernames);
 });

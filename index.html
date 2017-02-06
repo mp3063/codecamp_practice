@@ -10,14 +10,17 @@
 </head>
 <body>
 <div class="container">
-    <div class="form-group">
-        <h3 class="text-center inline">Search Wikipedia</h3>
-        <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank"><span class="label btn-block label-success pull-right">Random Wiki</span></a>
-        <input type="text" name="search" class="form-control">
-        <a href="#" class="btn btn-primary btn-block search-wiki">Search</a>
-
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <ul class="nav nav-pills nav-justified">
+                <li role="presentation" class="active"><a href="#" class="all">All</a></li>
+                <li role="presentation"><a href="#" class="offLink">Offline</a></li>
+                <li role="presentation"><a href="#" class="onLink">Online</a></li>
+            </ul>
+            <div class="output"></div>
+        </div>
     </div>
-    <div class="output"></div>
+
 
 </div>
 <script
