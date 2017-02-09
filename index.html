@@ -2,32 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!--    <script src="js/vue.min.js"></script>-->
-    <link href="https://bootswatch.com/united/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
-
-    <title>Proba VUE.JS</title>
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    <title>Calculator</title>
 </head>
 <body>
 <div class="container">
-    <div class="row">
-        <div class="col-sm-6 col-sm-offset-3">
-            <ul class="nav nav-pills nav-justified">
-                <li role="presentation" class="active"><a href="#" class="all">All</a></li>
-                <li role="presentation"><a href="#" class="offLink">Offline</a></li>
-                <li role="presentation"><a href="#" class="onLink">Online</a></li>
-            </ul>
-            <div class="output"></div>
+    <div class="calculator">
+        <div class="entry">
+            <div class="numbers-entry"></div>
+        </div>
+        <div class="buttons-group">
+            <div class="buttons-row">
+                <div class="btn btn-red ac">AC</div>
+                <div class="btn btn-red ce">CE</div>
+                <div class="btn operator">/</div>
+                <div class="btn operator">X</div>
+            </div>
+            <div class="buttons-row">
+                <div class="btn number">7</div>
+                <div class="btn number">8</div>
+                <div class="btn number">9</div>
+                <div class="btn operator">-</div>
+            </div>
+            <div class="buttons-row">
+                <div class="btn number">4</div>
+                <div class="btn number">5</div>
+                <div class="btn number">6</div>
+                <div class="btn operator">+</div>
+            </div>
+            <div class="equal">
+                <div class="btn btn-vertical-dbl equal-sign">=</div>
+            </div>
+            <div class="buttons-row tree">
+                <div class="btn btn-tree number">1</div>
+                <div class="btn btn-tree number">2</div>
+                <div class="btn btn-tree number">3</div>
+            </div>
+            <div class="buttons-row tree">
+                <div class="btn btn-horizontal-dbl 0">0</div>
+                <div class="btn btn-tree dot">.</div>
+            </div>
+
         </div>
     </div>
-
-
 </div>
 <script
     src="https://code.jquery.com/jquery-3.1.1.min.js"
     integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
     crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
