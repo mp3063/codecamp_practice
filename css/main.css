@@ -1,150 +1,38 @@
-.container {
-    font-family: 'Orbitron', sans-serif;
+.pomodoro-clock {
+    width: 300px;
+    height: 300px;
+    border-radius: 150px;
+    background-color: aquamarine;
     margin-left: auto;
     margin-right: auto;
-    position: relative;
-    width: 80%;
-}
-
-.calculator {
-    background-color: #D1D0D0;
-    border-radius: 20px;
-    box-shadow: 0px 7px 53px 0px;
-    -webkit-box-shadow: 0px 7px 53px 0px;
-    height: 500px;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 500px;
-    padding-top: 30px;
-    width: 600px;
-}
-
-.entry {
-    background-color: #9FAF88;
-    border: thin solid #848C78;
-    height: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
-}
-
-.numbers-entry {
-    font-size: 45px;
-    height: 60%;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 20px;
-    overflow-x: hidden;
-    text-align: right;
-    visibility: visible;
-}
-
-.buttons-group {
-    height: 65%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 45px;
-    min-width: 0px;
-    position: relative;
-    width: 90%;
-}
-
-.buttons-row {
-    height: 20%;
-    text-align: center;
-    width: 100%;
-}
-
-.btn {
-    background-color: #3A3A3A;
-    box-shadow: inset 0px 0px 19px -6px;
-    -webkit-box-shadow: inset 0px 0px 19px -6px;
-    color: #FFFFFF;
     cursor: pointer;
+}
+
+.pomodoro-clock h1 {
+    line-height: 200px;
+}
+
+.session-length {
     display: inline-block;
-    font-size: large;
-    font-weight: 800;
-    height: 90%;
-    line-height: 60px;
-    margin: 0px;
-    padding: 0px;
-    position: relative;
-    text-align: center;
-    width: 24%;
+    padding: 20px;
 }
 
-.btn-horizontal-dbl {
+.break-length {
     display: inline-block;
-    height: 90%;
-    margin: 0px;
-    padding: 0px;
-    position: relative;
-    width: 66%;
+    padding: 20px;
 }
 
-.tree {
-    width: 75%;
+.well {
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
-.btn-tree {
-    width: 32.4%;
+.glyphicon {
+    cursor: pointer;
 }
 
-.equal {
-    float: right;
-    height: 38%;
-    text-align: center;
-    width: 24.2%;
-}
-
-.btn-vertical-dbl {
-    height: 100%;
-    line-height: 114px;
-    width: 100%;
-}
-
-.btn-red {
-    background-color: #A72D45;
-}
-
-.nula {
-}
-
-.jedan {
-}
-
-.dva {
-}
-
-.tri {
-}
-
-.pet {
-}
-
-.sest {
-}
-
-.sedam {
-}
-
-.osam {
-}
-
-.devet {
-}
-
-.ac {
-}
-
-.ce {
-}
-
-.x {
-}
-
-.minus {
-}
-
-.tri {
+.red {
+    background-color: red;
+    color: white;
 }

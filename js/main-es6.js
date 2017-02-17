@@ -1,101 +1,85 @@
 $(document).ready(function () {
-    let numbersEntry          = $(".numbers-entry");
-    let operators             = $(".operator");
-    let ac                    = $(".ac");
-    let ce                    = $(".ce");
-    let equalSign             = $(".equal-sign");
-    let dot                   = $(".dot");
-    let values                = [];
-    let resetScreenConditions = ["/", "x", "X", "+", "-"];
+    let pomodoro       = $(".pomodoro-clock");
+    let addWork        = $(".session-plus");
+    let subWork        = $(".session-minus");
+    let addRest        = $(".break-plus");
+    let subRest        = $(".break-minus");
+    let workValueField = $(".work-value");
+    let restValueField = $(".break-value");
+    let pause          = false;
+    let counting;
 
-    function result(first, second, operator) {
-        switch (operator) {
-            case "/":
-                return first / second;
-                break;
-            case "X":
-                return first * second;
-                break;
-            case "x":
-                return first * second;
-                break;
-            case "-":
-                return first - second;
-                break;
-            case "+":
-                return first + second;
-                break;
+    // Update values on click
+    $(addWork).on("click", function () {
+        let value = parseInt(workValueField.text()) + 1;
+        workValueField.text(value);
+    });
+    $(subWork).on("click", function () {
+        let value = parseInt(workValueField.text()) - 1;
+        workValueField.text(value);
+    });
+    $(addRest).on("click", function () {
+        let value = parseInt(restValueField.text()) + 1;
+        restValueField.text(value);
+    });
+    $(subRest).on("click", function () {
+        let value = parseInt(restValueField.text()) - 1;
+        restValueField.text(value);
+    });
+
+    // Properties
+    let prop = {
+        isSession: true,
+        isBreak: function () {
+            return this.isSession !== true;
+        },
+    };
+
+    // Format seconds so it returns minutes and seconds
+    function formatTime(seconds) {
+        let minutes = Math.floor(seconds / 60);
+        seconds     = seconds % 60;
+        if (seconds < 10) {
+            return minutes + ":" + "0" + seconds;
+        }
+        return minutes + ":" + seconds;
+    }
+
+    let count     = parseInt($(workValueField).text()) * 60;
+    let rest      = parseInt($(restValueField).text()) * 60;
+    let workCount = count;
+
+    // Timer toggle Session or Break time if isSession is true or false
+    function timer() {
+        if (prop.isSession) {
+            count--;
+            workValueField.text(formatTime(count));
+            pomodoro.html(`<h1>Wooork!!!</h1><h2>${formatTime(count)}</h2>`);
+            if (count == 0) {
+                count          = rest;
+                prop.isSession = false;
+            }
+        } else {
+            count--;
+            restValueField.text(formatTime(count));
+            pomodoro.toggleClass("red");
+            pomodoro.html(`<h1>Break!</h1><h2>${formatTime(count)}</h2>`);
+            if (count == 0) {
+                count          = workCount;
+                prop.isSession = true;
+            }
         }
     }
 
-    $(numbersEntry).text("0");
-    $(".number").on("click", function () {
-        resetScreenConditions.forEach(function (item) {
-            if (item == numbersEntry.text()) {
-                $(numbersEntry).text("");
-            }
-        });
-        if ($(numbersEntry).text() === "0") {
-            $(numbersEntry).text("");
+    $(pomodoro).on("click", function () {
+        if (pause === false) {
+            counting = setInterval(timer, 1000);
+            pause    = true;
         }
-        if (numbersEntry.text() == values[0]) {
-            numbersEntry.text("");
-
-        }
-
-        $(numbersEntry).append($(this).text());
-        if (numbersEntry.text().length > 11) {
-            numbersEntry.text(numbersEntry.text().substr(0, numbersEntry.text().length - 1));
+        else if (pause === true) {
+            clearInterval(counting);
+            pause = false;
         }
     });
 
-    $(operators).on("click", function () {
-        if (values.length < 2) {
-            values.push(numbersEntry.text());
-            $(numbersEntry).text($(this).text());
-            values.push($(this).text());
-        }
-        else {
-            values.push(parseInt(numbersEntry.text()));
-            let firstNumber  = values[0];
-            let operator     = values[1];
-            let secondNumber = values[2];
-
-            let res = result(firstNumber, secondNumber, operator);
-            values  = [];
-            values.push(res);
-            values.push($(this).text());
-            numbersEntry.text(res);
-        }
-    });
-    $(dot).on("click", function () {
-        // Restrict multiple dots
-        if (numbersEntry.text().indexOf(".") > -1) {
-            numbersEntry.text();
-        } else {
-            numbersEntry.text(numbersEntry.text() + ".");
-        }
-    });
-    $(ac).on("click", function () {
-        // Reset values
-        values = [];
-        numbersEntry.text("0");
-    });
-    $(ce).on("click", function () {
-        // Back one place each time
-        numbersEntry.text(numbersEntry.text().substr(0, numbersEntry.text().length - 1));
-    });
-    $(equalSign).on("click", function () {
-        values.push(numbersEntry.text());
-        if (values.length == 3) {
-            let firstNumber  = parseInt(values[0]);
-            let operator     = values[1];
-            let secondNumber = parseInt(values[2]);
-
-            values  = [];
-            let res = result(firstNumber, secondNumber, operator);
-            numbersEntry.text(res);
-        }
-        console.log(values);
-    });
 });

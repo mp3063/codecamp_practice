@@ -3,54 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <link href="css/main.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
-    <title>Calculator</title>
+    <link rel="stylesheet" href="https://bootswatch.com/united/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.eot">
+    <title>Pomodoro clock</title>
 </head>
 <body>
-<div class="container">
-    <div class="calculator">
-        <div class="entry">
-            <div class="numbers-entry"></div>
-        </div>
-        <div class="buttons-group">
-            <div class="buttons-row">
-                <div class="btn btn-red ac">AC</div>
-                <div class="btn btn-red ce">CE</div>
-                <div class="btn operator">/</div>
-                <div class="btn operator">X</div>
-            </div>
-            <div class="buttons-row">
-                <div class="btn number">7</div>
-                <div class="btn number">8</div>
-                <div class="btn number">9</div>
-                <div class="btn operator">-</div>
-            </div>
-            <div class="buttons-row">
-                <div class="btn number">4</div>
-                <div class="btn number">5</div>
-                <div class="btn number">6</div>
-                <div class="btn operator">+</div>
-            </div>
-            <div class="equal">
-                <div class="btn btn-vertical-dbl equal-sign">=</div>
-            </div>
-            <div class="buttons-row tree">
-                <div class="btn btn-tree number">1</div>
-                <div class="btn btn-tree number">2</div>
-                <div class="btn btn-tree number">3</div>
-            </div>
-            <div class="buttons-row tree">
-                <div class="btn btn-horizontal-dbl 0">0</div>
-                <div class="btn btn-tree dot">.</div>
-            </div>
+<div class="container text-center">
+    <header class="page-header text-center"><h2>Pomodoro clock</h2></header>
+    <div class="pomodoro-clock"><h1>Start</h1></div>
+    <div class="session-length well">
+        <p>Session length:</p>
+        <span class="glyphicon glyphicon glyphicon-plus session-plus text-danger" aria-hidden="true"></span>
+        <h2 class="work-value">1</h2>
+        <span class="glyphicon glyphicon glyphicon-minus session-minus text-danger" aria-hidden="true"></span>
+    </div>
 
-        </div>
+    <div class="break-length well">
+        <p>Break length:</p>
+        <span class="glyphicon glyphicon glyphicon-plus break-plus text-danger" aria-hidden="true"></span>
+        <h2 class="break-value">1</h2>
+        <span class="glyphicon glyphicon glyphicon-minus break-minus text-danger" aria-hidden="true"></span>
     </div>
 </div>
 <script
     src="https://code.jquery.com/jquery-3.1.1.min.js"
     integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
     crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
